@@ -1,33 +1,33 @@
 const people = [
     {
         id: 1,
-        name: "Yuseon",
-        age: 29,
+        name: "Emma",
+        age: 33,
         gender: "female"
     },
     {
         id: 2,
-        name: "Sungjun",
-        age: 28,
+        name: "Jake",
+        age: 33,
         gender: "male"
     },
     {
         id: 3,
-        name: "Mike",
+        name: "Jane",
         age: 27,
-        gender: "male"
+        gender: "female"
     },
     {
         id: 4,
-        name: "Daisy",
+        name: "John",
         age: 26,
-        gender: "female"
+        gender: "male"
     },
     {
         id: 5,
-        name: "Hongsam",
-        age: 5,
-        gender: "female"
+        name: "Sam",
+        age: 8,
+        gender: "male"
     }
 ];
 
