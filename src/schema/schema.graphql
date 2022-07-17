@@ -1,0 +1,72 @@
+scalar Date
+
+type User {
+    id: Int!
+    name: String!
+    age: Int!
+    gender: Gender!
+    favorites: FavoriteResult
+}
+
+union FavoriteResult = Movie | Series
+
+interface Favorite {
+    id: ID!
+    title: String!
+    description: String
+    genres: [String!]
+    mediaType: String!
+}
+
+type Movie implements Favorite {
+    id: ID!
+    title: String!
+    description: String
+    genres: [String!]
+    mediaType: String!
+    duration: Int!
+    directors: [String!]
+}
+
+type Series implements Favorite {
+    id: ID!
+    title: String!
+    description: String
+    genres: [String!]
+    mediaType: String!
+    startYear: String!
+    endYear: String!
+    totalSeasons: Int!
+}
+
+enum Gender {
+    MALE
+    FEMALE
+    TRANSGENDER
+    CISGENDER
+    NONBINARY
+    NOANSWER
+}
+
+input UserInput {
+    name: String!
+    age: Int!
+    gender: String!
+}
+
+type Response {
+    status: Int!
+    message: String
+}
+
+type Query {
+    hello: String
+    users: [User]!
+    user(id: Int!): User
+    favorites: [FavoriteResult]!
+}
+
+type Mutation {
+    addUser(user: UserInput!): Response!
+    deleteUser(id: Int!): Boolean
+}

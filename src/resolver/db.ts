@@ -1,17 +1,17 @@
+import { UserType } from "./types";
+
 let users = [
     {
         id: 1,
-        name: "Emma",
+        name: "Jane Doe",
         age: 33,
         gender: "FEMALE",
-        favorites: []
     },
     {
         id: 2,
-        name: "Jake",
-        age: 33,
+        name: "John Doe",
+        age: 25,
         gender: "MALE",
-        favorites: []
     }
 ];
 
@@ -31,15 +31,20 @@ export const deleteUser = (id: number) => {
     }
 };
 
-export const addUser = (name: string, age: number, gender: string, favorites: any) => {
-    const newPerson = {
-        id: `${users.length + 1}`,
-        name,
-        age,
-        gender,
-        favorites
-    };
-    // @ts-ignore
-    users.push(newPerson);
-    return newPerson;
+export const addUser = (user: UserType) => {
+    try {
+        const { name, age, gender } = user;
+        const newId = users.length + 1;
+        const newPerson = {
+            id: newId,
+            name,
+            age,
+            gender,
+        };
+        users.push(newPerson);
+
+        return { status: 200, message: 'Successfully added'}
+    } catch (error) {
+        return { status: 500, message: error }
+    }
 }
